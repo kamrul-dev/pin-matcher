@@ -15,6 +15,7 @@ function generatePin() {
     document.getElementById('display-pin').value = pin;
 }
 
+// number from key pad in display and validation
 document.getElementById('key-pad').addEventListener('click',
     function (event) {
         const number = event.target.innerText;
@@ -31,3 +32,22 @@ document.getElementById('key-pad').addEventListener('click',
             calcInput.value = newNumber;
         }
     });
+
+// veryfy the numbers are matched or not
+    function verifyPin(){
+        const pin = document.getElementById('display-pin').value;
+        const typedNumbbers = document.getElementById('typed-numbers').value;
+        const successMessage  = document.getElementById('notify-success');
+        const failError = document.getElementById('notify-failed');
+
+        if(pin == typedNumbbers){          
+            successMessage.style.display = 'block';
+            failError.style.display = 'none';
+        }
+        else{          
+            failError.style.display = 'block';
+            successMessage.style.display = 'none';
+        }
+
+
+    }
